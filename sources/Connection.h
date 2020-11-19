@@ -4,11 +4,14 @@
 
 namespace Http
 {
+	class ConnectionManager;
 
-	class Connection
+	class Connection : public std::enable_shared_from_this<Connection>
 	{
 		public:
-			Connection();
+			Connection(const Connection&);
+			Connection& operator=(const Connection&);
+			Connection(boost::asio::ip::tcp::socket, ConnectionManager& manager, RequestHandler& handler);
 			~Connection();
 			void start();
 			void stop();
@@ -20,6 +23,7 @@ namespace Http
 			std::array<char, 8192> buffer_;
 			Request request_;
 			RequestParser parser_;
+			RequestHandler handler_;
 			Reply reply_;
 	};
 }

@@ -5,7 +5,13 @@ set(sources main.cpp
 	ConnectionManager.cpp
 	Connection.cpp
 	RequestHandler.cpp
+	ReplyParser.cpp
+	Reply.cpp
+	Request.cpp
+	MimeTypes.cpp
 	)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 add_executable(${PROJECT_NAME} ${sources})
-target_link_libraries(${PROJECT_NAME} ws2_32)
+if("${CMAKE_COMPILER_ID}" STREQUAL "MSVC")
+	target_link_libraries(${PROJECT_NAME} ws2_32)
+endif()
