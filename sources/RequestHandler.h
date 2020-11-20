@@ -1,11 +1,16 @@
 #ifndef __REQUESTHANDLER__H
 #define __REQUESTHANDLER__H
 
+#include <string>
 
-class RequestHandler
+namespace Http
 {
-public:
-	RequestHandler(const std::string& docRoot);
-	~RequestHandler();
-};
+	class RequestHandler
+	{
+		public:
+			RequestHandler(const std::string& docRoot);
+			~RequestHandler();
+	};
+}
+
 #endif//__REQUESTHANDLER__H

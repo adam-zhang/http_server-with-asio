@@ -46,8 +46,9 @@ namespace Http
 						return;
 					if(!code)
 					{
-						auto p = std::shared_ptr<Connection>(std::move(socket), manager_, handler_);
-						manager_.start(p));
+						auto p = std::make_shared<Connection>(std::move(socket));
+							// manager_, handler_);
+						manager_.start(p);
 						accept();
 					}
 				}
@@ -58,8 +59,10 @@ namespace Http
 	{
 		signals_.async_wait(
 				[this](boost::system::error_code, int)
+				{
 					acceptor_.close();
 					manager_.stopAll();
-				)
+				}
+				);
 	}
 }

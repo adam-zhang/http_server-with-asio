@@ -2,9 +2,13 @@
 #define __CONNECTIONMANAGER__H
 
 #include <set>
+#include <memory>
+#include <boost/asio.hpp>
 
 namespace Http
 {
+	class Connection;
+
 	class ConnectionManager
 	{
 		public:

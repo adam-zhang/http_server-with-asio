@@ -1,9 +1,12 @@
 #include "RequestHandler.h"
 
-RequestHandler::RequestHandler(const std::string& docRoot)
+namespace Http
 {
-}
+	RequestHandler::RequestHandler(const std::string& docRoot)
+	{
+	}
 
-RequestHandler::~RequestHandler()
-{
+	RequestHandler::~RequestHandler()
+	{
+	}
 }

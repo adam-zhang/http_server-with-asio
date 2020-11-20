@@ -1,6 +1,12 @@
 #ifndef __CONNECTION__H
 #define __CONNECTION__H
 
+#include "RequestHandler.h"
+#include "Request.h"
+#include "RequestParser.h"
+#include "Reply.h"
+#include <memory>
+#include <boost/asio.hpp>
 
 namespace Http
 {
@@ -9,9 +15,9 @@ namespace Http
 	class Connection : public std::enable_shared_from_this<Connection>
 	{
 		public:
-			Connection(const Connection&);
+			Connection(const Connection&)=delete;
 			Connection& operator=(const Connection&);
-			Connection(boost::asio::ip::tcp::socket, ConnectionManager& manager, RequestHandler& handler);
+			Connection(boost::asio::ip::tcp::socket); //, ConnectionManager& manager, RequestHandler& handler);
 			~Connection();
 			void start();
 			void stop();

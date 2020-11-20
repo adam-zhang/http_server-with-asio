@@ -2,12 +2,12 @@
 
 namespace Http
 {
-	Connection::Connection(boost::asio::ip::tcp::socket socket,
-			ConnectionManager& manager,
-			RequestHandler& handler)
+	Connection::Connection(boost::asio::ip::tcp::socket socket)
+			//ConnectionManager& manager,
+			//RequestHandler& handler)
 		: socket_(socket)
-		  , manager_(manager)
-		  , handler_(handler)
+		  //, manager_(manager)
+		  //, handler_(handler)
 	{
 
 	}

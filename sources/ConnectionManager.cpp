@@ -1,4 +1,5 @@
 #include "ConnectionManager.h"
+#include "Connection.h"
 
 namespace Http
 {
@@ -11,13 +12,13 @@ namespace Http
 	}
 
 	
-	void ConnectionManager::start(std::shared_ptr<ConnectionManager>& value)
+	void ConnectionManager::start(std::shared_ptr<Connection>& value)
 	{
-		connections_.insert();
+		connections_.insert(value);
 		value->start();
 	}
 
-	void ConnectionManager::stop(std::shared_ptr<ConnectionManager>& value)
+	void ConnectionManager::stop(std::shared_ptr<Connection>& value)
 	{
 		connections_.erase(value);
 		value->stop();
